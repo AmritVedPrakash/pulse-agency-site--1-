@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream font-sans text-ink antialiased overflow-x-hidden; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight; }
+  :focus-visible { outline: 3px solid #6a2cf5; outline-offset: 3px; border-radius: 6px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .section { @apply py-20 sm:py-28; }
+  .h-display { @apply font-display font-extrabold leading-[0.95] tracking-tight text-[clamp(2.6rem,8vw,6.5rem)]; }
+  .h-section { @apply font-display font-extrabold leading-[1.02] text-[clamp(2rem,5vw,3.8rem)]; }
+  .glass { @apply bg-white/60 backdrop-blur-xl border border-white/70 shadow-[0_20px_60px_-25px_rgba(60,20,140,.35)]; }
+  .grain::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .input { @apply w-full rounded-2xl border border-ink/15 bg-white px-4 py-3 text-base placeholder:text-ink/40 focus:border-violet; }
+}
