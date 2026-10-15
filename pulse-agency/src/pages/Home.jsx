@@ -9,7 +9,7 @@ import Testimonials from '../components/common/Testimonials'
 import CtaBlock from '../components/common/CtaBlock'
 
 export default function Home() {
-  useSEO('Pulse Studio | Social Media Marketing Agency', 'Social media management, ads, reels, branding and growth strategy for brands that want attention and measurable results.')
+  useSEO('Frame Theory Socials | Social Media Marketing Agency', 'Social media management, ads, reels, branding and growth strategy for brands that want attention and measurable results.')
   return (
     <>
       <Hero />

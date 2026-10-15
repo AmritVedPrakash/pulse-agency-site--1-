@@ -11,7 +11,7 @@ import CtaBlock from '../components/common/CtaBlock'
 import { about } from '../data/about'
 
 export default function AboutUs() {
-  useSEO('About Us | Pulse Studio', 'Meet the creative and strategy team behind Pulse Studio, a social media marketing agency built on ideas and data.')
+  useSEO('About Us | Frame Theory Socials', 'Meet the creative and strategy team behind Frame Theory Socials, a social media marketing agency built on ideas and data.')
   return (
     <>
       <PageHero title={about.hero.title} text={about.hero.text} />

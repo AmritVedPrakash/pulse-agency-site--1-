@@ -1,4 +1,4 @@
-# Pulse Studio – Social Media Agency Website
+# Frame Theory Socials – Social Media Agency Website
 
 React + Vite + Tailwind + Framer Motion + Lucide + React Router.
 

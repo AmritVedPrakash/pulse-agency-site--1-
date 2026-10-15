@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#faf6ef', sand: '#efe8db', ink: '#17141f', violet: { DEFAULT: '#6a2cf5', soft: '#ece4ff', deep: '#4a17c4' },
-        coral: '#ff6b5e', blush: '#ffc2d1',
+        cream: '#dfcec6', sand: '#9b9d9e', ink: '#40030d', violet: { DEFAULT: '#4f0715', soft: '#dfcec6', deep: '#40030d' },
+        coral: '#ecc47a', blush: '#dfcec6',
       },
       fontFamily: { display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'], sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },
       keyframes: { marquee: { to: { transform: 'translateX(-50%)' } } },

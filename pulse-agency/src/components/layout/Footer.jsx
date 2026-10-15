@@ -11,7 +11,7 @@ export default function Footer() {
       <div aria-hidden className="absolute -right-24 -top-24 h-80 w-80 animate-pulse rounded-full bg-violet/30 blur-3xl" />
       <div className="container-x relative grid gap-12 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Logo light />
+          <Logo light full />
           <p className="mt-5 max-w-sm text-cream/70">{site.tagline} We help brands build attention, communities and results that can be measured.</p>
           <div className="mt-6 flex gap-3">
             {social.map(([Icon, k, label]) => (

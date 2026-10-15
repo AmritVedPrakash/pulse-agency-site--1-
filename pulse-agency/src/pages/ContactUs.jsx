@@ -7,7 +7,7 @@ import Faq from '../components/pricing/Faq'
 import { contactFaqs } from '../data/contact'
 
 export default function ContactUs() {
-  useSEO('Contact Us | Pulse Studio', 'Tell us about your brand and goals. Send a project inquiry to Pulse Studio.')
+  useSEO('Contact Us | Frame Theory Socials', 'Tell us about your brand and goals. Send a project inquiry to Frame Theory Socials.')
   return (
     <>
       <PageHero blob="bg-coral/25" title="Have a Big Idea? Let’s Make It Happen." text="Tell us about your brand, your goals, and what you want to achieve. We’ll help you figure out the next step." />
