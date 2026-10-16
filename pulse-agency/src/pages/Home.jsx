@@ -7,6 +7,8 @@ import Results from '../components/home/Results'
 import Process from '../components/home/Process'
 import Testimonials from '../components/common/Testimonials'
 import CtaBlock from '../components/common/CtaBlock'
+import WhoWeAre from '../components/home/WhoWeAre'
+import OurServices from '../components/home/OurServices'
 
 export default function Home() {
   useSEO('Frame Theory Socials | Social Media Marketing Agency', 'Social media management, ads, reels, branding and growth strategy for brands that want attention and measurable results.')
@@ -14,7 +16,10 @@ export default function Home() {
     <>
       <Hero />
       <Marquee />
-      <Services />
+       <WhoWeAre/>
+      {/* <Services /> */}
+      <OurServices/>
+     
       <Portfolio />
       <Results />
       <Process />

@@ -63,7 +63,7 @@ export default function ContactForm() {
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 <motion.div key="ok" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} role="status" className="py-16 text-center">
-                  <CheckCircle2 className="mx-auto text-violet" size={56} aria-hidden /><h2 className="mt-4 text-3xl font-extrabold">Inquiry sent</h2>
+                  <CheckCircle2 className="mx-auto text-violet" size={56} aria-hidden /><h2 className="mt-4 text-xl font-bold">Inquiry sent</h2>
                   <p className="mt-2 text-ink/70">Thanks, {v.name.split(' ')[0]}. We will reply to {v.email} soon.</p>
                 </motion.div>
               ) : (

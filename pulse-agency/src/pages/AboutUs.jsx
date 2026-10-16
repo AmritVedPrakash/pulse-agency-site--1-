@@ -18,10 +18,10 @@ export default function AboutUs() {
       <Story />
       <MissionVision />
       <Values />
-      <Team />
+      {/* <Team /> */}
       <Approach />
-      <Results />
-      <Process />
+      {/* <Results />
+      <Process /> */}
       <CtaBlock title="Let’s Build Something Remarkable." text="Tell us where your brand is today and where you want it to be." label="Start a conversation" />
     </>
   )

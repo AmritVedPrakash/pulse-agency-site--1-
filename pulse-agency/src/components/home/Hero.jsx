@@ -55,7 +55,7 @@ export default function Hero() {
           <motion.div style={{ y: y2 }} className="absolute bottom-6 left-6 sm:left-2">
             <motion.div animate={float(2)} className="glass flex items-center gap-3 rounded-2xl p-4">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-violet text-white"><TrendingUp size={20} /></span>
-              <div><p className="text-xs text-ink/60">Demo widget: engagement</p><p className="font-display text-xl font-extrabold">+38%</p></div>
+              <div><p className="text-xs text-ink/60">Demo widget: engagement</p><p className="font-display text-lg font-bold">+38%</p></div>
             </motion.div>
           </motion.div>
           <motion.div animate={float(0.5)} className="absolute bottom-24 right-4 h-16 w-16 rounded-full bg-coral" />
