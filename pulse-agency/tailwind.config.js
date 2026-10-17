@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#faf7f7', sand: '#e8dedf', ink: '#40030d', violet: { DEFAULT: '#40030d', soft: '#f4ebec', deep: '#30020a' },
+        cream: '#ffffff', sand: '#ffffff', ink: '#40030d', violet: { DEFAULT: '#40030d', soft: '#f4ebec', deep: '#30020a' },
         coral: '#ffe482', blush: '#fff3c2',
       },
       fontFamily: { display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'], sans: ['"DM Sans"', 'system-ui', 'sans-serif'] },

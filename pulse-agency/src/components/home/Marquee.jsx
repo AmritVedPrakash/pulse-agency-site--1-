@@ -12,7 +12,7 @@ import { portfolio, process, brands, stats } from '../../data/services'
 export default function Marquee() {
   const row = [...brands, ...brands]
   return (
-    <section aria-label="Brands we have worked with (placeholder names)" className="border-y border-ink/10 bg-sand py-6">
+    <section aria-label="Brands we have worked with (placeholder names)" className="border-y border-ink/10 bg-white py-6">
       <p className="sr-only">Placeholder brand names</p>
       <div className="overflow-hidden"><div className="flex w-max animate-marquee gap-14 motion-reduce:animate-none">
         {row.map((b, i) => <span key={i} className="whitespace-nowrap font-display text-2xl font-bold text-ink/40">{b}</span>)}

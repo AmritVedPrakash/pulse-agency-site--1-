@@ -41,13 +41,10 @@ export default function WhoWeAre() {
   return (
     <section
       id="about"
-      className="relative isolate overflow-hidden bg-[#fff4c9] px-5 py-20 text-[#4b160f] sm:px-8 lg:px-12 lg:py-28"
+      className="relative isolate overflow-hidden bg-[#ffe482] px-5 py-20 text-[#4b160f] sm:px-8 lg:px-12 lg:py-28"
     >
-      {/* Background decoration */}
-      <div className="pointer-events-none absolute -left-32 top-0 -z-10 h-80 w-80 rounded-full bg-[#ffe28a]/70 blur-3xl" />
-      <div className="pointer-events-none absolute left-1/3 top-1/4 -z-10 h-72 w-72 rounded-full bg-white/50 blur-3xl" />
-
       <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12">
+
         {/* LEFT CONTENT */}
         <motion.div
           variants={fadeUp}
@@ -62,15 +59,15 @@ export default function WhoWeAre() {
             <span className="text-xs font-bold uppercase tracking-[0.25em]">
               Who We Are
             </span>
-            <Sparkles size={17} className="ml-1 text-[#d89e27]" />
+            <Sparkles size={17} className="ml-1 text-[#b17a25]" />
           </div>
 
           <h2 className="max-w-2xl text-[2.85rem] font-black leading-[1.02] tracking-[-0.055em] sm:text-6xl xl:text-[4.5rem]">
             We turn D2C brands into{" "}
-            <span className="relative inline-block text-[#d9a334]">
+            <span className="relative inline-block text-[#b17a25]">
               growth stories.
               <svg
-                className="absolute -right-5 -top-4 hidden w-12 text-[#d9a334] sm:block"
+                className="absolute -right-5 -top-4 hidden w-12 text-[#b17a25] sm:block"
                 viewBox="0 0 48 48"
                 fill="none"
                 aria-hidden="true"
@@ -155,7 +152,7 @@ export default function WhoWeAre() {
             href="#contact"
             whileHover={{ scale: 1.035 }}
             whileTap={{ scale: 0.97 }}
-            className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#4b160f] px-7 py-4 text-sm font-bold text-[#fff4c9] shadow-lg shadow-[#4b160f]/10 transition-colors hover:bg-[#6b2519]"
+            className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#4b160f] px-7 py-4 text-sm font-bold text-[#ffe482] shadow-lg shadow-[#4b160f]/10 transition-colors hover:bg-[#6b2519]"
           >
             Let's Grow Together
             <ArrowUpRight size={18} />
@@ -164,14 +161,19 @@ export default function WhoWeAre() {
 
         {/* RIGHT TESTIMONIAL VISUAL */}
         <div className="relative mx-auto w-full max-w-[540px] py-5 sm:py-10">
-          {/* Decorative background shape */}
+
+          {/* Solid decorative shape */}
           <div className="absolute -right-10 top-0 h-[92%] w-[73%] rounded-[45%_15%_35%_25%] bg-[#4b160f] sm:-right-4" />
 
           <div className="absolute right-0 top-3 h-40 w-40 rounded-full border border-[#f5cd50]/80" />
 
           <motion.div
             animate={{ rotate: [0, 7, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             className="absolute right-1 top-12 text-[#f8d84f]"
           >
             <Sparkles size={32} strokeWidth={1.5} />
@@ -190,7 +192,10 @@ export default function WhoWeAre() {
                   delay: item.delay,
                   ease: "easeOut",
                 }}
-                whileHover={{ y: -5, rotate: index === 1 ? -1 : 1 }}
+                whileHover={{
+                  y: -5,
+                  rotate: index === 1 ? -1 : 1,
+                }}
                 className={`relative w-[94%] rounded-2xl border border-white/80 bg-[#fffaf0] p-5 shadow-[0_16px_45px_rgba(88,44,16,0.12)] sm:p-6 ${
                   index === 1
                     ? "ml-auto w-[91%]"
@@ -242,11 +247,14 @@ export default function WhoWeAre() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.5 }}
             whileHover={{ scale: 1.025 }}
-            className="relative z-20 mx-auto mt-3 flex w-[90%] max-w-[360px] items-center gap-4 rounded-2xl bg-[#4b160f] px-5 py-5 text-[#fff0a1] shadow-xl sm:ml-0 sm:w-[78%] sm:px-6"
+            className="relative z-20 mx-auto mt-3 flex w-[90%] max-w-[360px] items-center gap-4 rounded-2xl bg-[#4b160f] px-5 py-5 text-[#ffe482] shadow-xl sm:ml-0 sm:w-[78%] sm:px-6"
           >
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/5">
               <div className="relative">
-                <ChartNoAxesColumnIncreasing size={33} strokeWidth={2.5} />
+                <ChartNoAxesColumnIncreasing
+                  size={33}
+                  strokeWidth={2.5}
+                />
                 <TrendingUp
                   size={17}
                   className="absolute -right-1 -top-2"

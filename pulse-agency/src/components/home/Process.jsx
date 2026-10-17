@@ -45,22 +45,23 @@ export default function Process() {
     offset: ["start 75%", "end 65%"],
   });
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const lineHeight = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "100%"]
+  );
+
+  const lineWidth = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "100%"]
+  );
 
   return (
     <section
       id="process"
-      className="relative isolate overflow-hidden bg-[#ffebaa] px-5 py-16 text-[#4b160f] sm:px-8 sm:py-20 lg:px-12 lg:py-24"
+      className="relative isolate overflow-hidden bg-[#ffe482] px-5 py-16 text-[#4b160f] sm:px-8 sm:py-20 lg:px-12 lg:py-24"
     >
-      {/* Background decorations */}
-      <div className="pointer-events-none absolute -right-24 -top-24 -z-10 h-80 w-80 rounded-full border border-[#e4c46d]/40 sm:h-[440px] sm:w-[440px]">
-        <div className="absolute inset-4 rounded-full border border-[#e4c46d]/30" />
-        <div className="absolute inset-8 rounded-full border border-[#e4c46d]/25" />
-      </div>
-
-      <div className="pointer-events-none absolute -bottom-32 -left-24 -z-10 h-80 w-80 rounded-full bg-[#fff5d0] blur-3xl" />
-
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <ScrollReveal>
@@ -82,33 +83,33 @@ export default function Process() {
               whileInView={{ width: 72 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mx-auto mt-5 h-1 rounded-full bg-[#d5a23d]"
+              className="mx-auto mt-5 h-1 rounded-full bg-[#b17a25]"
             />
 
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#79513b] sm:text-base">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-[#624b3e] sm:text-base">
               A simple, strategic process that turns creative ideas into
               meaningful brand growth.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Desktop horizontal timeline */}
+        {/* Desktop Horizontal Timeline */}
         <div className="hidden md:block">
           <ol
             ref={ref}
             className="relative grid grid-cols-4 gap-6 pt-3"
           >
-            {/* Base line */}
+            {/* Base Line */}
             <div
               aria-hidden="true"
-              className="absolute left-[12.5%] right-[12.5%] top-[43px] h-[3px] rounded-full bg-[#4b160f]/10"
+              className="absolute left-[12.5%] right-[12.5%] top-[43px] h-[3px] rounded-full bg-[#4b160f]/15"
             />
 
-            {/* Animated progress line */}
+            {/* Animated Progress Line */}
             <motion.div
               aria-hidden="true"
               style={{ width: lineWidth }}
-              className="absolute left-[12.5%] top-[43px] h-[3px] max-w-[75%] rounded-full bg-[#c58b2e]"
+              className="absolute left-[12.5%] top-[43px] h-[3px] max-w-[75%] rounded-full bg-[#8b5e1b]"
             />
 
             {processSteps.map((step, index) => {
@@ -126,24 +127,24 @@ export default function Process() {
                   }}
                   className="relative flex flex-col items-center text-center"
                 >
-                  {/* Number circle */}
+                  {/* Number Circle */}
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="relative z-10 flex h-[62px] w-[62px] items-center justify-center rounded-full border-[5px] border-[#ffebaa] bg-[#4b160f] text-lg font-extrabold text-[#fff0b4] shadow-lg shadow-[#4b160f]/15"
+                    className="relative z-10 flex h-[62px] w-[62px] items-center justify-center rounded-full border-[5px] border-[#ffe482] bg-[#4b160f] text-lg font-extrabold text-[#ffe482] shadow-lg shadow-[#4b160f]/15"
                   >
                     {step.number}
                   </motion.div>
 
-                  {/* Step card */}
+                  {/* Step Card */}
                   <motion.div
                     whileHover={{ y: -6 }}
-                    className="mt-7 flex h-full w-full flex-col items-center rounded-2xl border border-[#d8b76c]/50 bg-[#fff7dc]/80 p-6 transition-shadow duration-300 hover:shadow-xl hover:shadow-[#70401d]/10 lg:p-7"
+                    className="mt-7 flex h-full w-full flex-col items-center rounded-2xl border border-[#4b160f]/10 bg-white p-6 transition-shadow duration-300 hover:shadow-xl hover:shadow-[#70401d]/10 lg:p-7"
                   >
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7e4a5] text-[#6b281b]">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#fff0b8] text-[#6b281b]">
                       <Icon size={23} strokeWidth={1.8} />
                     </div>
 
-                    <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#a27432]">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#986322]">
                       Step {index + 1}
                     </p>
 
@@ -151,11 +152,11 @@ export default function Process() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-3 text-sm leading-6 text-[#79513b]">
+                    <p className="mt-3 text-sm leading-6 text-[#624b3e]">
                       {step.description}
                     </p>
 
-                    <div className="mt-5 h-[2px] w-8 rounded-full bg-[#d5a23d] transition-all duration-300 hover:w-14" />
+                    <div className="mt-5 h-[2px] w-8 rounded-full bg-[#b17a25] transition-all duration-300 hover:w-14" />
                   </motion.div>
                 </motion.li>
               );
@@ -163,20 +164,20 @@ export default function Process() {
           </ol>
         </div>
 
-        {/* Mobile vertical timeline */}
+        {/* Mobile Vertical Timeline */}
         <div className="md:hidden">
           <ol className="relative space-y-7 pl-2">
-            {/* Vertical base line */}
+            {/* Vertical Base Line */}
             <div
               aria-hidden="true"
-              className="absolute bottom-8 left-[27px] top-7 w-[3px] rounded-full bg-[#4b160f]/10"
+              className="absolute bottom-8 left-[27px] top-7 w-[3px] rounded-full bg-[#4b160f]/15"
             />
 
-            {/* Animated vertical line */}
+            {/* Animated Vertical Line */}
             <motion.div
               aria-hidden="true"
               style={{ height: lineHeight }}
-              className="absolute left-[27px] top-7 w-[3px] rounded-full bg-[#c58b2e]"
+              className="absolute left-[27px] top-7 w-[3px] rounded-full bg-[#8b5e1b]"
             />
 
             {processSteps.map((step, index) => {
@@ -194,21 +195,21 @@ export default function Process() {
                   }}
                   className="relative grid grid-cols-[52px_minmax(0,1fr)] items-start gap-4"
                 >
-                  {/* Number circle */}
+                  {/* Number Circle */}
                   <motion.div
                     whileTap={{ scale: 0.95 }}
-                    className="relative z-10 mt-5 flex h-[52px] w-[52px] items-center justify-center rounded-full border-4 border-[#ffebaa] bg-[#4b160f] text-sm font-extrabold text-[#fff0b4] shadow-md"
+                    className="relative z-10 mt-5 flex h-[52px] w-[52px] items-center justify-center rounded-full border-4 border-[#ffe482] bg-[#4b160f] text-sm font-extrabold text-[#ffe482] shadow-md"
                   >
                     {step.number}
                   </motion.div>
 
-                  {/* Content card */}
-                  <div className="rounded-2xl border border-[#d8b76c]/50 bg-[#fff7dc]/90 p-5 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-6">
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7e4a5] text-[#6b281b]">
+                  {/* Content Card */}
+                  <div className="rounded-2xl border border-[#4b160f]/10 bg-white p-5 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-6">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff0b8] text-[#6b281b]">
                       <Icon size={21} strokeWidth={1.8} />
                     </div>
 
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#a27432]">
+                    <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#986322]">
                       Step {index + 1}
                     </p>
 
@@ -216,7 +217,7 @@ export default function Process() {
                       {step.title}
                     </h3>
 
-                    <p className="mt-2 text-sm leading-6 text-[#79513b]">
+                    <p className="mt-2 text-sm leading-6 text-[#624b3e]">
                       {step.description}
                     </p>
                   </div>
@@ -226,7 +227,7 @@ export default function Process() {
           </ol>
         </div>
 
-        {/* Bottom message */}
+        {/* Bottom Message */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +235,7 @@ export default function Process() {
           transition={{ duration: 0.6 }}
           className="mt-12 text-center sm:mt-16"
         >
-          <p className="text-sm font-medium text-[#79513b] sm:text-base">
+          <p className="text-sm font-medium text-[#624b3e] sm:text-base">
             <span className="font-bold text-[#4b160f]">
               Four steps. One goal.
             </span>{" "}

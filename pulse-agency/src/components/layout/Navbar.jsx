@@ -8,7 +8,7 @@ import Button from "../common/Button";
 const links = [
   ["/", "Home"],
   ["/about", "About Us"],
-  ["/pricing", "Pricing"],
+  ["/blog", "Blog"],
   ["/contact", "Contact Us"],
 ];
 
@@ -34,9 +34,11 @@ export default function Navbar() {
       <div className="container-x">
         <nav
           aria-label="Main"
-          className={`flex items-center justify-between rounded-full px-4 py-2 transition-all ${solid ? "glass" : ""}`}
+          className="flex items-center justify-between rounded-full border border-ink/10 bg-white px-4 py-2 shadow-[0_8px_30px_-12px_rgba(64,3,13,.22)] transition-all"
         >
-          <Logo />
+          <div className="ml-3 shrink-0">
+            <Logo iconOnly />
+          </div>
           <ul className="hidden items-center gap-1 md:flex">
             {links.map(([to, label]) => (
               <li key={to}>
@@ -107,7 +109,7 @@ export default function Navbar() {
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
             >
               <div className="flex items-center justify-between">
-                <Logo />
+                <Logo iconOnly />
                 <button
                   className="grid h-11 w-11 place-items-center rounded-full bg-ink text-cream"
                   onClick={() => setOpen(false)}

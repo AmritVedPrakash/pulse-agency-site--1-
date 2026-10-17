@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { site } from "../../data/site";
-export default function Logo({ light = false, full = false }) {
+export default function Logo({ light = false, full = false, iconOnly = false }) {
   return (
     <Link
       to="/"
@@ -20,7 +20,7 @@ export default function Logo({ light = false, full = false }) {
             alt=""
             className="h-16 w-16 object-contain sm:h-20 sm:w-20"
           />
-          {site.name}
+          {!iconOnly && site.name}
         </>
       )}
     </Link>
