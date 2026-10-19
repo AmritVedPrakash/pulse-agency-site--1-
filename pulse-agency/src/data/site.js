@@ -1,14 +1,14 @@
-// Edit placeholder company details here.
+// Edit company details here.
 export const site = {
   name: "Frame Theory Socials",
   tagline: "Creative minds. Measurable growth.",
-  email: import.meta.env.VITE_CONTACT_EMAIL || "hello@yourdomain.com",
-  whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || "919999999999",
+  email: import.meta.env.VITE_CONTACT_EMAIL || "connect@frametheorysocials.in",
+  whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || "919711376997",
   socials: {
-    instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/",
-    facebook: "https://facebook.com/",
-    youtube: "https://youtube.com/",
+    instagram: "https://www.instagram.com/frame_theory_socials/",
+    linkedin: "https://www.linkedin.com/company/frametheorysocials/?viewAsMember=true",
+    facebook: "https://www.facebook.com/share/1C7reEgrAT/?mibextid=wwXIfr",
+    youtube: "https://youtube.com/@frametheorysocials?si=rb3Bgy4FR9fb3N0n",
   },
 };
 export const img = (id, w = 900, h) =>

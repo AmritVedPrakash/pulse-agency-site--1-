@@ -8,15 +8,15 @@ const seg = (p, a, b) => clamp((p - a) / (b - a)); // 0..1 progress inside a scr
 const lerp = (a, b, t) => a + (b - a) * t;
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 const easeInQuad = (t) => t * t;
-const easeInOut = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+const easeInOut = (t) =>
+  t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 const easeOutBack = (t) => {
   const c1 = 1.70158;
   const c3 = c1 + 1;
   return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
 };
 
-/* Scroll windows (0 = top of the scene, 1 = end of the scene).
-   Yahan se timing tweak kar sakte ho. */
+/* Scroll windows (0 = top of the scene, 1 = end of the scene). */
 const T = {
   wiggle: [0.02, 0.08], // O wordmark me hilta hai
   pop: [0.08, 0.22], // O bahar nikal ke FT ke upar aata hai
@@ -27,7 +27,7 @@ const T = {
 };
 const STEPS = 6; // walk me kitne full step-cycles (kam = dheema chalna)
 const SWAP_AT = 0.08; // is point par wordmark ka O -> character ban jaata hai
-const SMOOTHING = 0.045; // chhota = zyada slow & smooth (0.03 - 0.1)
+const SMOOTHING = 1; // higher value = faster response while staying smooth
 
 /* ------------------------------------------------------------------ */
 /*  Smooth scroll progress (0 -> 1) for a tall container               */
@@ -49,7 +49,7 @@ function useSmoothScrollProgress(ref) {
     };
 
     const tick = () => {
-      current += (target - current) * SMOOTHING; // easing = buttery feel
+      current += (target - current) * SMOOTHING;
       if (Math.abs(target - current) < 0.00005) current = target;
       setP(current);
       raf = current === target ? 0 : requestAnimationFrame(tick);
@@ -76,8 +76,92 @@ function useSmoothScrollProgress(ref) {
 }
 
 /* ------------------------------------------------------------------ */
+/*  FT logo mark — golden bubble letters (inline SVG, 1280 x 1230)     */
+/*  Image jaisa soft, blobby F aur T                                   */
+/* ------------------------------------------------------------------ */
+const F_PATH =
+  "M150 150 C170 90 220 70 300 70 L560 68 C640 66 700 55 740 85 " +
+  "C775 110 785 150 778 190 C770 245 730 292 670 292 " +
+  "C620 292 560 265 480 262 C430 262 405 295 408 335 " +
+  "C412 375 440 380 470 375 C510 368 540 352 575 352 " +
+  "C625 352 655 395 648 430 C640 480 590 530 535 531 " +
+  "C500 532 480 515 440 517 C415 520 405 545 405 580 " +
+  "C408 640 440 700 455 735 C470 770 470 800 455 830 " +
+  "C430 880 350 912 270 912 C190 912 125 880 106 815 " +
+  "C98 770 115 740 130 705 C155 645 175 580 183 500 " +
+  "C190 430 188 380 180 340 C172 300 150 260 142 215 " +
+  "C138 185 142 165 150 150 Z";
+
+const T_PATH =
+  "M610 580 C620 500 680 455 760 447 C840 440 900 448 1000 445 " +
+  "C1080 440 1150 432 1200 462 C1245 490 1258 540 1245 590 " +
+  "C1232 635 1190 660 1140 650 C1100 642 1070 628 1035 633 " +
+  "C1008 640 1005 670 1005 710 C1008 800 1020 870 1038 930 " +
+  "C1052 985 1070 1020 1065 1075 C1055 1150 1000 1190 910 1192 " +
+  "C820 1192 765 1150 757 1090 C752 1040 775 1000 790 950 " +
+  "C810 880 820 810 818 720 C817 670 800 630 765 632 " +
+  "C735 633 710 655 675 658 C635 660 605 625 610 580 Z";
+
+function FTMark({ height }) {
+  const width = (height * 1280) / 1230;
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 1280 1230"
+      style={{
+        display: "block",
+        overflow: "visible",
+        filter: "drop-shadow(0 10px 16px rgba(0,0,0,.35))",
+      }}
+      aria-label="FT"
+      role="img"
+    >
+      <defs>
+        {/* soft golden fill */}
+        <linearGradient id="ftGold" x1="0" y1="0" x2="0.6" y2="1">
+          <stop offset="0" stopColor="#f6d673" />
+          <stop offset="0.55" stopColor="#efc85f" />
+          <stop offset="1" stopColor="#e7b94d" />
+        </linearGradient>
+        {/* andar ki halki chamak */}
+        <radialGradient id="ftShine" cx="0.3" cy="0.2" r="0.8">
+          <stop offset="0" stopColor="#fff6c8" stopOpacity=".45" />
+          <stop offset="1" stopColor="#fff6c8" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {[F_PATH, T_PATH].map((d, i) => (
+        <g key={i}>
+          {/* base fill + dark-gold outline */}
+          <path
+            d={d}
+            fill="url(#ftGold)"
+            stroke="#b6800f"
+            strokeWidth="7"
+            strokeLinejoin="round"
+          />
+          {/* soft shine */}
+          <path d={d} fill="url(#ftShine)" />
+          {/* inner light edge (bevel jaisa) */}
+          <path
+            d={d}
+            fill="none"
+            stroke="#fff3b8"
+            strokeOpacity=".5"
+            strokeWidth="3"
+            strokeLinejoin="round"
+            transform="translate(2 2)"
+            style={{ mixBlendMode: "soft-light" }}
+          />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  The walking "O" character (inline SVG, 200 x 300 viewBox)          */
-/*  Ring center = (100,100), feet bottom ~ y 268                        */
 /* ------------------------------------------------------------------ */
 function WalkingO({ limb, armL, armR, legL, legR, shadow }) {
   return (
@@ -186,8 +270,8 @@ function WalkingO({ limb, armL, armR, legL, legR, shadow }) {
 /*  Main page component                                                */
 /* ------------------------------------------------------------------ */
 export default function FrameTheoryScroll() {
-  const sceneRef = useRef(null); // tall scroll container
-  const stageRef = useRef(null); // sticky viewport
+  const sceneRef = useRef(null);
+  const stageRef = useRef(null);
   const ftRef = useRef(null);
   const wordRef = useRef(null);
   const slotRef = useRef(null);
@@ -230,8 +314,8 @@ export default function FrameTheoryScroll() {
 
   /* ---------------------------- animation maths ---------------------------- */
   const wordFont = 40 * k;
-  const B = 1.45 * k; // character base scale
-  const s0 = (wordFont * 0.72) / 166; // scale at which ring == letter size
+  const B = 1.45 * k;
+  const s0 = (wordFont * 0.72) / 166;
 
   const wiggle = seg(p, ...T.wiggle);
   const pop = seg(p, ...T.pop);
@@ -244,39 +328,37 @@ export default function FrameTheoryScroll() {
 
   let char = null;
   if (m) {
-    // character size: chhoti screen par bhi poora fit ho (walk me 1.3x bada hota hai)
     const Bc = Math.min(B, (m.vh * 0.6) / 251);
     const popE = easeOutBack(pop);
     let sc = lerp(s0, Bc, popE);
     if (walk > 0) sc = lerp(Bc, Bc * 1.3, walk);
 
-    // ground = screen ka bottom (jahan "Scroll" likha tha)
     const groundY = m.vh - 28 * k;
     const cyGround = groundY - 168 * sc;
 
-    // X
     let x = lerp(m.slotX, m.ftX, easeOutCubic(pop));
     if (walk > 0) x = lerp(m.ftX, m.vw + 260 * k, walk);
 
-    // Y
     let y;
     if (p < T.fall[0]) {
-      y = lerp(m.slotY, m.ftY, easeOutCubic(pop)) - Math.sin(pop * Math.PI) * 30 * k;
+      y =
+        lerp(m.slotY, m.ftY, easeOutCubic(pop)) -
+        Math.sin(pop * Math.PI) * 30 * k;
     } else {
       y = lerp(m.ftY, cyGround, easeInQuad(fall));
     }
-    const bounce = Math.sin(seg(p, T.fall[1], T.fall[1] + 0.08) * Math.PI) * 26 * k;
+    const bounce =
+      Math.sin(seg(p, T.fall[1], T.fall[1] + 0.08) * Math.PI) * 26 * k;
     const bob = Math.abs(cycle) * 7 * k * walkAmp;
     y = y - bounce - bob;
 
-    // rotation + squash
     const rot =
       Math.sin(pop * Math.PI) * -14 +
       Math.sin(fall * Math.PI * 2) * 9 +
       cycle * 2.5 * walkAmp;
-    const sq = Math.sin(seg(p, T.fall[1] - 0.01, T.fall[1] + 0.05) * Math.PI) * 0.16;
+    const sq =
+      Math.sin(seg(p, T.fall[1] - 0.01, T.fall[1] + 0.05) * Math.PI) * 0.16;
 
-    // limbs
     const dangle =
       Math.sin(fall * Math.PI * 4) *
       18 *
@@ -290,7 +372,7 @@ export default function FrameTheoryScroll() {
       0.85 *
         clamp(
           seg(p, T.limbs[0], T.limbs[0] + 0.05) -
-            seg(p, T.fall[1] - 0.05, T.fall[1] + 0.03)
+            seg(p, T.fall[1] - 0.05, T.fall[1] + 0.03),
         ) +
       easeInOut(cheer);
     const shake = Math.sin(p * 110) * 7 * easeInOut(cheer);
@@ -299,7 +381,9 @@ export default function FrameTheoryScroll() {
     const armR = -(8 + raise * 155) + shake + armSwing;
 
     const shadowOpacity =
-      seg(p, T.fall[1] - 0.07, T.fall[1]) * 0.38 * (1 - clamp(bounce / (26 * k)));
+      seg(p, T.fall[1] - 0.07, T.fall[1]) *
+      0.38 *
+      (1 - clamp(bounce / (26 * k)));
 
     char = (
       <div
@@ -329,11 +413,10 @@ export default function FrameTheoryScroll() {
   /* ---------------------------------- JSX ---------------------------------- */
   return (
     <main className="bg-[#4a0e14] text-[#e9c46a]">
-      {/* font loading (Google Fonts) */}
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Playfair+Display:wght@400;500&display=swap');`}</style>
+      {/* font loading (sirf wordmark ke liye Playfair) */}
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap');`}</style>
 
-      {/* ===== SCROLL SCENE: height decides how long the animation lasts ===== */}
-      <section ref={sceneRef} className="relative h-[1500vh]">
+      <section ref={sceneRef} className="relative h-[650vh]">
         <div
           ref={stageRef}
           className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden pb-[14vh]"
@@ -344,18 +427,13 @@ export default function FrameTheoryScroll() {
         >
           {/* ---- logo block ---- */}
           <div className="relative flex w-[min(92vw,640px)] flex-col items-center">
-            {/* FT mark (apna real logo ho to <img> se replace kar do) */}
+            {/* FT mark: golden bubble letters */}
             <div
               ref={ftRef}
-              className="select-none leading-none text-[#ecc968]"
-              style={{
-                fontFamily: "'Bagel Fat One', cursive",
-                fontSize: 150 * k,
-                transform: `scale(${ftScale})`,
-                textShadow: "0 8px 18px rgba(0,0,0,.35)",
-              }}
+              className="select-none"
+              style={{ transform: `scale(${ftScale})` }}
             >
-              FT
+              <FTMark height={170 * k} />
             </div>
 
             {/* wordmark */}
@@ -405,8 +483,18 @@ export default function FrameTheoryScroll() {
             style={{ opacity: 1 - seg(p, 0, 0.05) }}
           >
             <span>Scroll</span>
-            <svg className="h-5 w-5 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+            <svg
+              className="h-5 w-5 animate-bounce"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                d="M6 9l6 6 6-6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </div>
 
@@ -419,8 +507,6 @@ export default function FrameTheoryScroll() {
           </div>
         </div>
       </section>
-
-      
     </main>
   );
 }

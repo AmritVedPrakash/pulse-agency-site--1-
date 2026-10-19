@@ -1,21 +1,17 @@
 import useSEO from '../hooks/useSEO'
 import PageHero from '../components/common/PageHero'
-import ContactForm from '../components/contact/ContactForm'
 import ContactInfo from '../components/contact/ContactInfo'
 import NextSteps from '../components/contact/NextSteps'
 import Faq from '../components/pricing/Faq'
 import { contactFaqs } from '../data/contact'
 
 export default function ContactUs() {
-  useSEO('Contact Us | Frame Theory Socials', 'Tell us about your brand and goals. Send a project inquiry to Frame Theory Socials.')
+  useSEO('Contact Us | Frame Theory Socials', 'Get in touch with Frame Theory Socials by email or WhatsApp to talk about your brand and goals.')
   return (
     <>
-      <PageHero blob="bg-coral/25" title="Have a Big Idea? Let’s Make It Happen." text="Tell us about your brand, your goals, and what you want to achieve. We’ll help you figure out the next step." />
+      <PageHero blob="bg-coral/25" title="Have a Big Idea? Let’s Make It Happen." text="Have a project in mind? Reach out by email or WhatsApp and tell us a little about your brand and goals. We’ll help you find the right next step." />
       <section className="pb-24 pt-8">
-        <div className="container-x grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7"><ContactForm /></div>
-          <div className="lg:col-span-5"><ContactInfo /></div>
-        </div>
+        <div className="container-x"><ContactInfo /></div>
       </section>
       <NextSteps />
       <Faq items={contactFaqs} title="Before you write" />
