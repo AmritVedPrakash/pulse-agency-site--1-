@@ -225,8 +225,8 @@ export default function OurServices() {
             Have a project in mind? Let's make it happen.
           </p>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="group inline-flex items-center gap-3 rounded-full bg-[#4b160f] px-7 py-4 text-sm font-bold text-white shadow-lg shadow-[#4b160f]/10 transition-all duration-300 hover:-translate-y-1 hover:bg-[#70271b] hover:shadow-xl"
           >
             Discuss Your Project
@@ -234,7 +234,7 @@ export default function OurServices() {
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
             />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

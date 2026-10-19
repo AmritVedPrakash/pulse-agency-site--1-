@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
         </div>
         <nav aria-label="Footer"><h3 className="mb-4 text-lg font-bold">Explore</h3>
-          <ul className="space-y-2 text-cream/70">{[['/', 'Home'], ['/about', 'About Us'], ['/blog', 'Blog'], ['/contact', 'Contact Us']].map(([t, l]) => <li key={t}><Link className="hover:text-white" to={t}>{l}</Link></li>)}</ul>
+          <ul className="space-y-2 text-cream/70">{[['/', 'Home'], ['/about', 'About Us'], ['/services', 'Our Services'], ['/blog', 'Blog'], ['/contact', 'Contact Us']].map(([t, l]) => <li key={t}><Link className="hover:text-white" to={t}>{l}</Link></li>)}</ul>
         </nav>
         <div><h3 className="mb-4 text-lg font-bold">Services</h3>
           <ul className="space-y-2 text-cream/70">{services.map(s => <li key={s.title}><Link className="hover:text-white" to="/contact">{s.title}</Link></li>)}</ul>

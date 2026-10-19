@@ -3,6 +3,9 @@ export const site = {
   name: "Frame Theory Socials",
   tagline: "Creative minds. Measurable growth.",
   email: import.meta.env.VITE_CONTACT_EMAIL || "connect@frametheorysocials.in",
+  careersEmail: "career@frametheorysocials.in",
+  phone: "+91 9711376997",
+  address: "B.K. Tower, H Block, Noida Sector 63, Uttar Pradesh - 201301",
   whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || "919711376997",
   socials: {
     instagram: "https://www.instagram.com/frame_theory_socials/",

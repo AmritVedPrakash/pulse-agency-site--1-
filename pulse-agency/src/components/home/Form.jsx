@@ -58,6 +58,12 @@ export default function Form() {
   const labelClass =
     "mb-1 block text-xs font-medium text-[#77716e] sm:text-sm";
 
+  const highlights = [
+    "Creative Ideas",
+    "Smart Strategy",
+    "Real Growth",
+  ];
+
   return (
     <section
       id="contact"
@@ -67,7 +73,6 @@ export default function Form() {
 
         {/* Left Content */}
         <div className="flex flex-col justify-center py-1">
-
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#79652f] sm:text-sm">
             Let's work together
           </p>
@@ -81,25 +86,21 @@ export default function Form() {
             your goals, challenges, and growth opportunities.
           </p>
 
-          {/* Highlights */}
+          {/* Hoverable Highlights */}
           <div className="mt-5 flex flex-wrap gap-2">
-            {["Creative Ideas", "Smart Strategy", "Real Growth"].map(
-              (item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#a68c42]/40 bg-white/30 px-3 py-1.5 text-xs font-medium text-[#55472a] sm:text-sm"
-                >
-                  {item}
-                </span>
-              )
-            )}
+            {highlights.map((item) => (
+              <span
+                key={item}
+                className="cursor-pointer rounded-full border border-[#a68c42]/40 bg-white/30 px-3 py-1.5 text-xs font-medium text-[#55472a] transition-all duration-300 ease-out hover:border-[#40030d] hover:bg-[#40030d] hover:text-white hover:shadow-md sm:text-sm"
+              >
+                {item}
+              </span>
+            ))}
           </div>
-
         </div>
 
         {/* Contact Form */}
         <div className="relative overflow-hidden rounded-xl bg-[#fffdfb] p-5 shadow-[0_10px_35px_rgba(87,65,14,0.08)] sm:p-6 lg:p-7">
-
           {/* Subtle Decoration */}
           <div
             aria-hidden="true"
@@ -111,7 +112,6 @@ export default function Form() {
             onSubmit={handleSubmit}
             className="relative z-10 space-y-3.5"
           >
-
             {/* Name */}
             <div>
               <label htmlFor="name" className={labelClass}>
@@ -156,7 +156,6 @@ export default function Form() {
               </label>
 
               <div className="flex items-center gap-3 border-b border-[#aaa39d] focus-within:border-[#d7aa26]">
-
                 <select
                   name="country_code"
                   aria-label="Country code"
@@ -182,7 +181,6 @@ export default function Form() {
                   required
                   className="min-w-0 flex-1 bg-transparent py-1.5 text-sm text-[#292524] outline-none placeholder:text-[#b4aeaa] sm:text-base"
                 />
-
               </div>
             </div>
 
@@ -227,7 +225,7 @@ export default function Form() {
               />
             </div>
 
-            {/* Status */}
+            {/* Success / Error */}
             {status.message && (
               <div
                 role="status"
@@ -246,7 +244,7 @@ export default function Form() {
             <button
               type="submit"
               disabled={loading}
-              className="group inline-flex min-w-32 items-center justify-center gap-3 rounded-full border-2 border-[#ffdf78] bg-[#252525] px-7 py-2 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#45413a] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+              className="group inline-flex min-w-32 items-center justify-center gap-3 rounded-full border-2 border-[#ffdf78] bg-[#252525] px-7 py-2 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#40030d] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
             >
               {loading ? (
                 <>
@@ -266,7 +264,6 @@ export default function Form() {
             <p className="text-[11px] leading-4 text-[#88817b]">
               Your information will only be used to respond to your enquiry.
             </p>
-
           </form>
         </div>
       </div>

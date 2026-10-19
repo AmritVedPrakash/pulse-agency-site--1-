@@ -11,7 +11,7 @@ export default function Logo({ light = false, full = false, iconOnly = false }) 
         <img
           src="/logo.png"
           alt=""
-          className="h-24 w-auto max-w-36 object-contain"
+          className="h-28 w-auto max-w-44 object-contain"
         />
       ) : (
         <>

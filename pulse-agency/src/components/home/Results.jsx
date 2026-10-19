@@ -26,7 +26,7 @@ export default function Results() {
             <ScrollReveal
               key={s.label}
               delay={i * 0.08}
-              className={`rounded-[2rem] p-6 sm:p-8 ${["bg-violet-soft", "bg-blush/60", "bg-sand", "bg-violet text-white"][i]}`}
+              className={`rounded-[2rem] p-6 sm:p-8 ${["bg-[#40030d] text-white", "bg-[#ffe482] text-[#40030d]", "border border-ink/10 bg-white text-[#40030d]", "bg-[#40030d] text-white"][i]}`}
             >
               <dd className="font-display text-2xl font-bold sm:text-3xl">
                 <Counter to={s.n} dec={s.dec} suffix={s.suffix} />

@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 // Shared hero for inner pages. Props: title, text, align ('left' | 'center')
-export default function PageHero({ title, text, align = 'left', blob = 'bg-blush/60' }) {
+export default function PageHero({ title, text, align = 'left', blob = 'bg-blush/60', className = '' }) {
   const c = align === 'center'
   return (
-    <section className={`grain relative overflow-hidden pb-12 pt-36 sm:pt-44 ${c ? 'text-center' : ''}`}>
+    <section className={`grain relative overflow-hidden pb-12 pt-36 sm:pt-44 ${c ? 'text-center' : ''} ${className}`}>
       <div aria-hidden className={`absolute -right-20 top-20 h-96 w-96 rounded-full blur-3xl ${blob}`} />
       <div className="container-x relative">
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className={`h-display max-w-5xl ${c ? 'mx-auto' : ''}`}>{title}</motion.h1>
