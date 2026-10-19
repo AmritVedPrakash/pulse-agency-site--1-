@@ -12,6 +12,7 @@ import OurServices from '../components/home/OurServices'
 import HeroSec from '../components/home/HeroSec'
 import FrameTheoryScroll from '../components/home/Frametheoryscroll'
 import OurWork from '../components/home/OurWork'
+import Form from '../components/home/Form'
 
 export default function Home() {
   useSEO('Frame Theory Socials | Social Media Marketing Agency', 'Social media management, ads, reels, branding and growth strategy for brands that want attention and measurable results.')
@@ -31,6 +32,7 @@ export default function Home() {
       <Process />
       <Testimonials />
       <CtaBlock title="Ready to Make Some Noise?" text="Let’s turn your next big idea into your brand’s next big win." />
+      <Form/>
     </>
   )
 }

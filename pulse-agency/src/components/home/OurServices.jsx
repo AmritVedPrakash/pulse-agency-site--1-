@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ArrowUpRight,
   Camera,
@@ -161,6 +162,22 @@ export default function OurServices() {
                     : "border-[#eee5d7] bg-white hover:border-[#d5a23d]/70 hover:shadow-[0_18px_45px_rgba(75,22,15,0.09)]"
                 }`}
               >
+                {["Packaging Design", "Social Media Management"].includes(service.title) && (
+                  <Link
+                    to={service.title === "Packaging Design" ? "/packaging-design" : "/social-media-management"}
+                    aria-label={`Explore ${service.title}`}
+                    className="absolute inset-0 z-10 rounded-2xl focus-visible:outline"
+                  />
+                )}
+                {service.title === "Meta Ads Video" && (
+                  <a
+                    href="https://drive.google.com/drive/folders/1zuB270-NCrqy5dYQsf8OmUe9WMDrZTPW?usp=drive_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Meta Ads videos on Google Drive"
+                    className="absolute inset-0 z-10 rounded-2xl focus-visible:outline"
+                  />
+                )}
                 {/* Card Header */}
                 <div className="mb-7 flex items-center justify-between">
                   <span className="text-sm font-bold tracking-[0.2em] text-[#8b6225]">
@@ -182,7 +199,12 @@ export default function OurServices() {
                 </p>
 
                 {/* Bottom Accent */}
-                
+                {["Packaging Design", "Social Media Management"].includes(service.title) && (
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4b160f]">
+                    Explore service
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </span>
+                )}
 
                 {/* Bottom Hover Accent */}
                 <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#4b160f] transition-all duration-500 group-hover:w-full" />

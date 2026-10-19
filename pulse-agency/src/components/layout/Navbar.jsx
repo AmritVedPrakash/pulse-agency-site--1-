@@ -8,7 +8,7 @@ import Button from "../common/Button";
 const links = [
   ["/", "Home"],
   ["/about", "About Us"],
-  ["/blog", "Blog"],
+  // ["/blog", "Blog"],
   ["/contact", "Contact Us"],
 ];
 

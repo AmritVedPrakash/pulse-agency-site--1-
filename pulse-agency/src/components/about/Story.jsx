@@ -1,19 +1,17 @@
 import ScrollReveal, { ClipReveal } from "../common/ScrollReveal";
-import SmartImg from "../common/SmartImg";
-import { IMG } from "../../data/site";
+import storyImage from "../../assets/about/story.png";
 import { about } from "../../data/about";
 export default function Story() {
   return (
     <section className="section pt-4">
       <div className="container-x grid items-center gap-12 lg:grid-cols-12">
         <ClipReveal className="lg:col-span-6">
-          <SmartImg
-            id={IMG.team}
-            alt="The agency team collaborating around a table"
-            w={1000}
-            h={1100}
-            eager
-            className="aspect-[10/11] w-full rounded-[2rem]"
+          <img
+            src={storyImage}
+            alt="The Frame Theory Socials team collaborating"
+            loading="eager"
+            decoding="async"
+            className="aspect-[10/11] w-full rounded-[2rem] object-cover"
           />
         </ClipReveal>
         <ScrollReveal className="lg:col-span-5 lg:col-start-8">
