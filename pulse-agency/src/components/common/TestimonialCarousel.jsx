@@ -27,7 +27,7 @@ export default function TestimonialCarousel() {
         </AnimatePresence>
       </div>
       <div className="mt-6 flex items-center justify-between">
-        <p className="pr-4 text-sm text-ink/55">Real stories. Real collaborations. Meaningful growth.</p>
+        <p className="pr-4 text-sm text-ink/55">{t.tagline}</p>
         <div className="flex gap-2">
           <button onClick={() => go(-1)} aria-label="Previous testimonial" className="grid h-11 w-11 place-items-center rounded-full border border-ink/20 hover:bg-ink hover:text-cream"><ChevronLeft size={20} /></button>
           <button onClick={() => go(1)} aria-label="Next testimonial" className="grid h-11 w-11 place-items-center rounded-full bg-violet text-white hover:bg-violet-deep"><ChevronRight size={20} /></button>

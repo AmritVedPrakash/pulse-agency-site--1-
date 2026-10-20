@@ -1,9 +1,11 @@
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { useLocation } from "react-router-dom";
 
 export default function Form() {
   const formRef = useRef(null);
+  const { hash } = useLocation();
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({
     type: "",
@@ -64,10 +66,19 @@ export default function Form() {
     "Real Growth",
   ];
 
+  useEffect(() => {
+    if (hash !== "#contact") return;
+
+    const timeout = window.setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 400);
+    return () => window.clearTimeout(timeout);
+  }, [hash]);
+
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#ffdf78] px-5 py-5 sm:px-8 sm:py-7 lg:px-12 lg:py-8"
+      className="relative scroll-mt-24 overflow-hidden bg-[#ffdf78] px-5 py-5 sm:px-8 sm:py-7 lg:px-12 lg:py-8"
     >
       <div className="mx-auto grid max-w-[1450px] items-center gap-7 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
 

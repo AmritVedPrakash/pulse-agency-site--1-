@@ -6,10 +6,16 @@ import Footer from '../components/layout/Footer'
 import WelcomePopup from '../components/common/WelcomePopup'
 
 export default function MainLayout() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [pathname])
+    if (!hash) {
+      window.scrollTo(0, 0)
+      return
+    }
+
+    const target = document.getElementById(hash.slice(1))
+    if (target) target.scrollIntoView()
+  }, [pathname, hash])
   return (
     <>
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-violet focus:px-4 focus:py-2 focus:text-white">Skip to content</a>

@@ -10,6 +10,7 @@ const Blog = lazy(() => import('./pages/Blog.jsx'))
 const BlogPost = lazy(() => import('./pages/BlogPost.jsx'))
 const SocialMediaManagement = lazy(() => import('./components/home/SocialMediaManagement.jsx'))
 const PackagingDesign = lazy(() => import('./components/home/PackagingDesign.jsx'))
+const PhotographyVideography = lazy(() => import('./components/home/PhotographyVideography.jsx'))
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/social-media-management" element={<SocialMediaManagement />} />
           <Route path="/packaging-design" element={<PackagingDesign />} />
+          <Route path="/photography-videography" element={<PhotographyVideography />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<Home />} />

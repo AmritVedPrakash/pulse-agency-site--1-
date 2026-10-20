@@ -8,6 +8,8 @@ import imageThree from "../../assets/PackagingDesign/img3.png";
 import imageFour from "../../assets/PackagingDesign/img4.png";
 import imageFive from "../../assets/PackagingDesign/img5.png";
 import imageSix from "../../assets/PackagingDesign/img6.png";
+import imageSeven from "../../assets/PackagingDesign/img7.png";
+import imageEight from "../../assets/PackagingDesign/img8.png";
 
 const gallery = [
   { src: imageOne, alt: "VYNK streetwear brand packaging and visual identity" },
@@ -16,6 +18,8 @@ const gallery = [
   { src: imageFour, alt: "Siply beverage packaging and campaign design" },
   { src: imageFive, alt: "Cloudy Bakes bakery packaging and visual identity" },
   { src: imageSix, alt: "Casey phone case packaging and product brand design" },
+  { src: imageSeven, alt: "Moné handbag collection branding and visual identity" },
+  { src: imageEight, alt: "Akyna streetwear collection branding and visual identity" },
 ];
 
 export default function PackagingDesign() {

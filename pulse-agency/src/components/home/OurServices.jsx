@@ -162,9 +162,15 @@ export default function OurServices() {
                     : "border-[#eee5d7] bg-white hover:border-[#d5a23d]/70 hover:shadow-[0_18px_45px_rgba(75,22,15,0.09)]"
                 }`}
               >
-                {["Packaging Design", "Social Media Management"].includes(service.title) && (
+                {["Packaging Design", "Social Media Management", "Photography & Videography"].includes(service.title) && (
                   <Link
-                    to={service.title === "Packaging Design" ? "/packaging-design" : "/social-media-management"}
+                    to={
+                      service.title === "Packaging Design"
+                        ? "/packaging-design"
+                        : service.title === "Social Media Management"
+                          ? "/social-media-management"
+                          : "/photography-videography"
+                    }
                     aria-label={`Explore ${service.title}`}
                     className="absolute inset-0 z-10 rounded-2xl focus-visible:outline"
                   />
@@ -199,7 +205,7 @@ export default function OurServices() {
                 </p>
 
                 {/* Bottom Accent */}
-                {["Packaging Design", "Social Media Management"].includes(service.title) && (
+                {["Packaging Design", "Social Media Management", "Photography & Videography"].includes(service.title) && (
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#4b160f]">
                     Explore service
                     <ArrowUpRight size={16} aria-hidden="true" />

@@ -16,10 +16,7 @@ export default function Results() {
           <h2 className="h-section max-w-xl">
             Numbers we are working toward for you.
           </h2>
-          <p className="max-w-sm text-sm text-ink/60">
-            Illustrative demo statistics. Replace with verified business data
-            before publishing.
-          </p>
+          
         </ScrollReveal>
         <dl className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {stats.map((s, i) => (

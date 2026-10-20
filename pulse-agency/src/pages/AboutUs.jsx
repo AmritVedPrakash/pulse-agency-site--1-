@@ -14,7 +14,7 @@ export default function AboutUs() {
   useSEO('About Us | Frame Theory Socials', 'Meet the creative and strategy team behind Frame Theory Socials, a social media marketing agency built on ideas and data.')
   return (
     <>
-      <PageHero title={about.hero.title} text={about.hero.text} />
+      <PageHero title={about.hero.title} text={about.hero.text} blob="hidden" className="bg-[#ffe482]" />
       <Story />
       <MissionVision />
       <Values />
@@ -22,7 +22,7 @@ export default function AboutUs() {
       {/* <Approach /> */}
       {/* <Results />
       <Process /> */}
-      <CtaBlock title="Let’s Build Something Remarkable." text="Tell us where your brand is today and where you want it to be." label="Start a conversation" />
+      <CtaBlock title="Let’s Build Something Remarkable." text="Tell us where your brand is today and where you want it to be." label="Start a conversation" to="/#contact" />
     </>
   )
 }
